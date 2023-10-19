@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  operatingsystem:
+    container_name: rascoussie
+    restart: unless-stopped
+    image: nixos/nix:latest
+    hostname: rascoussie
+    shm_size: 8g
+    ports:
+      - "10630:22"
+    environment:
+      - ROOT_PASSWORD=${ROOT_PASSWORD}
+    command:
+      - "sh"
+      - "-c"
+      - "cp -an /tmp/root/. /root/ & exec sh"
