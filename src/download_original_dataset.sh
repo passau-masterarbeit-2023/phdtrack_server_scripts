@@ -38,12 +38,6 @@ rm $PHDTRACK_DATA_DIR/*.zip
 # do a copy of the original dataset
 cp -r $PHDTRACK_DATA_DIR $PHDTRACK_DATA_DIR_CLEANED
 
-# create python conda env
-conda create --name py311 python=3.11.4 --channel conda-forge
-
-conda activate py311
-pip install -r $REPO_DIR/conda/requirements.txt
-
 # clean dataset with python script
 python /root/phdtrack/masterarbeit_report_onyr/src/chunk_algorithms.py --delete --input $PHDTRACK_DATA_DIR_CLEANED
 

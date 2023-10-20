@@ -16,3 +16,11 @@ This repository stores server specific scripts.
 * [ ] create conda venv: `conda create --name py311 python=3.11.4 --channel conda-forge`
 * [ ] download python packages.
 * [ ] cleaned dataset using script `/root/phdtrack/masterarbeit_report_onyr/src/chunk_algorithms.py --delete --input $PHDTRACK_DATA_DIR_CLEANED`
+
+##### Generating intermediate data with mem2graph
+Use `mem2graph` python launcher.
+
+> NOTE: Remember to add and modify a correct .env file in mem2graph before launching any pipeline.
+
+* `python run_pipelines.py --keep-old-output --dry-run --input /root/phdtrack/phdtrack_data_cleaned`
+* `python run_pipelines.py --keep-old-output --input /root/phdtrack/phdtrack_data_cleaned --run-selected 48`
