@@ -24,3 +24,6 @@ Use `mem2graph` python launcher.
 
 * `python run_pipelines.py --keep-old-output --dry-run --input /root/phdtrack/phdtrack_data_cleaned`
 * `python run_pipelines.py --keep-old-output --input /root/phdtrack/phdtrack_data_cleaned --run-selected 48`
+
+## Useful commands
+`pip freeze > requirements.txt`: generate Python `requirements.txt` file from Pip.
