@@ -9,12 +9,6 @@ if ! command -v unzip &> /dev/null; then
     exit 1
 fi
 
-# check if conda command is available, exit if not
-if ! command -v conda &> /dev/null; then
-    echo "conda command is not available, exiting."
-    exit 1
-fi
-
 # create directory if not exists
 mkdir -p $PHDTRACK_DATA_DIR
 mkdir -p $PHDTRACK_DATA_DIR_CLEANED
