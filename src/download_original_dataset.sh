@@ -17,6 +17,7 @@ fi
 
 # create directory if not exists
 mkdir -p $PHDTRACK_DATA_DIR
+mkdir -p $PHDTRACK_DATA_DIR_CLEANED
 
 # download original dataset
 wget -O $PHDTRACK_DATA_DIR/Performance_Test.zip https://zenodo.org/record/6537904/files/Performance%20Test.zip?download=1
@@ -29,14 +30,16 @@ unzip $PHDTRACK_DATA_DIR/Performance_Test.zip -d $PHDTRACK_DATA_DIR && mv "$PHDT
 unzip $PHDTRACK_DATA_DIR/Training.zip -d $PHDTRACK_DATA_DIR
 unzip $PHDTRACK_DATA_DIR/Validation.zip -d $PHDTRACK_DATA_DIR
 
+unzip $PHDTRACK_DATA_DIR_CLEANED/Performance_Test.zip -d $PHDTRACK_DATA_DIR_CLEANED && mv "$PHDTRACK_DATA_DIR_CLEANED/Performance Test" "$PHDTRACK_DATA_DIR_CLEANED/Performance_Test"
+unzip $PHDTRACK_DATA_DIR_CLEANED/Training.zip -d $PHDTRACK_DATA_DIR_CLEANED
+unzip $PHDTRACK_DATA_DIR_CLEANED/Validation.zip -d $PHDTRACK_DATA_DIR_CLEANED
+
 # remove useless files from PHDTRACK_DATA_DIR
 rm -r $PHDTRACK_DATA_DIR/__MACOSX/
+rm -r $PHDTRACK_DATA_DIR_CLEANED/__MACOSX/
 rm $PHDTRACK_DATA_DIR/*.zip
 
 
-
-# do a copy of the original dataset
-cp -r $PHDTRACK_DATA_DIR $PHDTRACK_DATA_DIR_CLEANED
 
 # clean dataset with python script
 python /root/phdtrack/masterarbeit_report_onyr/src/chunk_algorithms.py --delete --input $PHDTRACK_DATA_DIR_CLEANED
