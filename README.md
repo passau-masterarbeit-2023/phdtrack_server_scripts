@@ -27,3 +27,14 @@ Use `mem2graph` python launcher.
 
 ## Useful commands
 `pip freeze > requirements.txt`: generate Python `requirements.txt` file from Pip.
+
+setup a ssh key to github
+```shell
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+```
+
+add a custom python library to the env conda : 
+```shell
+pip install git+https://github.com/0nyr/research-base.git
+```
